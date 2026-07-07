@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const prendas = await getCollection("prendas");
+console.log(prendas);
+---
+
+<Layout title="Percatto">
+  <main>
+    <span class="block">Percatto</span>
+  </main>
+  <section aria-label="Prendas 2026">
+    <div class="px-4 mx-auot max-w-7xl">
+      <div class="grid gap-6 md: grid-cols-2">
+        {
+          prendas.map((prenda) => {
+            const { data } = prenda
+			const {title, season, price} = data
+			return(
+				<article>
+					<h3>{title}</h3>
+				</article>
+			)
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

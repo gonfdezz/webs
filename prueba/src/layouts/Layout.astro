@@ -1,0 +1,44 @@
+---
+// Recibimos la propiedad 'title' que le pasas desde el index.astro
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+	</head>
+	<body>										
+		<div> 		
+			<slot /> 
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	@reference "tailwindcss";
+	
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	html {
+		/* Sintaxis CSS corregida */
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		color: #fff;
+	}
+
+	body {
+		@apply grid place-content-center p-20;
+	}
+
+	body > div {
+		@apply container;
+	}
+</style>
