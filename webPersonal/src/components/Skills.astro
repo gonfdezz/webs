@@ -1,0 +1,44 @@
+---
+const skills = [
+	'HTML',
+	'Tailwind CSS',
+	'JavaScript',
+	'Astro',
+	'Node.js',
+	'Java',
+	'Python',
+	'SQL',
+	'VS Code',
+	'Eclipse',
+	'Git',
+	'GitHub',
+];
+---
+
+<section id="skills" class="mx-auto max-w-3xl px-6 py-20">
+	<h2 class="text-2xl font-semibold text-zinc-100">Skills</h2>
+	<p class="mt-6 leading-relaxed text-zinc-400">
+		Tengo una base sólida en el desarrollo de software y la creación de productos web,
+		combinando la robustez de lenguajes de backend con la agilidad de tecnologías frontend
+		modernas. Me entusiasma escribir código limpio, resolver problemas lógicos y diseñar
+		soluciones eficientes. Gracias a mi formación y práctica constante, tengo una gran
+		facilidad para adaptarme a diferentes entornos de desarrollo y aprender nuevas
+		tecnologías con rapidez.
+	</p>
+	<p class="mt-4 leading-relaxed text-zinc-400">
+		En mi día a día, construyo el frontend utilizando HTML, Tailwind CSS y JavaScript,
+		apoyándome en Astro para crear sitios web rápidos y optimizados. En el lado del servidor
+		y la lógica de datos, trabajo con Node.js, Java, Python y bases de datos SQL. Desarrollo
+		principalmente en VS Code y Eclipse, y gestiono todo el ciclo de vida de mi código
+		utilizando Git y GitHub para garantizar un control de versiones limpio y colaborativo.
+	</p>
+	<ul class="mt-8 flex flex-wrap gap-3">
+		{
+			skills.map((skill) => (
+				<li class="rounded-full border border-zinc-800 px-4 py-1 text-sm text-zinc-300">
+					{skill}
+				</li>
+			))
+		}
+	</ul>
+</section>
