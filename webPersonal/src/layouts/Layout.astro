@@ -3,9 +3,13 @@ import '../styles/global.css';
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = 'Gonzalo Fernández González — Portfolio' } = Astro.props;
+const {
+	title = 'Gonzalo Fernández González - Portfolio',
+	description = 'Portfolio de Gonzalo Fernández González, estudiante de Ingeniería del Software',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -13,12 +17,35 @@ const { title = 'Gonzalo Fernández González — Portfolio' } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+	<body class="bg-ink-950 text-bone-100 font-sans antialiased">
+		<div class="grain-overlay pointer-events-none fixed inset-0 z-[60]" aria-hidden="true"></div>
 		<slot />
+		<script>
+			const revealables = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+			if ('IntersectionObserver' in window && revealables.length) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						}
+					},
+					{ threshold: 0.15, rootMargin: '0px 0px -80px 0px' },
+				);
+
+				revealables.forEach((el) => observer.observe(el));
+			} else {
+				revealables.forEach((el) => el.classList.add('is-visible'));
+			}
+		</script>
 	</body>
 </html>

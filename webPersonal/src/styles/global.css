@@ -1,5 +1,92 @@
 @import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+	--font-sans: 'Space Grotesk Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+	--color-ink-950: #0a0908;
+	--color-ink-900: #131110;
+	--color-ink-800: #1d1a17;
+	--color-ink-700: #2b2723;
+
+	--color-bone-100: #f3eee3;
+	--color-bone-300: #d6cfc0;
+	--color-bone-500: #a49b89;
+	--color-bone-700: #6f6858;
+
+	--color-gold-300: #eec483;
+	--color-gold-400: #dda753;
+	--color-gold-500: #c68f3d;
+}
 
 html {
 	scroll-behavior: smooth;
+	color-scheme: dark;
+}
+
+body {
+	background-color: var(--color-ink-950);
+}
+
+::selection {
+	background-color: var(--color-gold-400);
+	color: var(--color-ink-950);
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-gold-400);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* Fixed film-grain texture. Applied once to a pointer-events-none overlay,
+   never to a scrolling container, to avoid repaint cost. */
+.grain-overlay {
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+	opacity: 0.05;
+	mix-blend-mode: overlay;
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-fade-up {
+	animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+[data-reveal] {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+		transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-up {
+		animation: none;
+		opacity: 1;
+		transform: none;
+	}
+
+	[data-reveal] {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
 }

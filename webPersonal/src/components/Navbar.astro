@@ -1,11 +1,48 @@
-<header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-bone-100/10 bg-ink-950/85 backdrop-blur-md">
 	<nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-		<span class="hidden sm:inline-block text-sm font-semibold tracking-wide text-zinc-100">Gonzalo Fernández</span>
-		<ul class="flex gap-3 text-xs md:gap-6 md:text-sm text-zinc-400">
-			<li><a href="#about" class="transition hover:text-emerald-400">Sobre mí</a></li>
-			<li><a href="#skills" class="transition hover:text-emerald-400">Skills</a></li>
-			<li><a href="#proyectos" class="transition hover:text-emerald-400">Proyectos</a></li>
-			<li><a href="#experiencia" class="transition hover:text-emerald-400">Experiencia</a></li>
+		<a href="#inicio" class="flex items-center gap-3">
+			<span
+				class="flex h-8 w-8 items-center justify-center rounded-xl border border-bone-100/15 font-mono text-xs text-gold-400"
+			>
+				GF
+			</span>
+			<span class="hidden text-sm font-medium tracking-tight text-bone-100 sm:inline-block">
+				Gonzalo Fernández
+			</span>
+		</a>
+		<ul class="flex gap-4 text-xs text-bone-500 md:gap-8 md:text-sm">
+			<li><a href="#about" class="nav-link">Sobre mí</a></li>
+			<li><a href="#skills" class="nav-link">Skills</a></li>
+			<li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+			<li><a href="#experiencia" class="nav-link">Experiencia</a></li>
 		</ul>
 	</nav>
 </header>
+
+<style>
+	.nav-link {
+		position: relative;
+		transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.nav-link:hover {
+		color: var(--color-bone-100);
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -4px;
+		width: 100%;
+		height: 1px;
+		background: var(--color-gold-400);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.nav-link:hover::after {
+		transform: scaleX(1);
+	}
+</style>

@@ -1,20 +1,44 @@
-<section id="inicio" class="mx-auto flex max-w-5xl flex-col-reverse items-center gap-10 px-6 py-24 md:flex-row md:py-32">
-	<div class="flex-1 text-center md:text-left">
-		<h1 class="text-3xl font-bold text-zinc-100 md:text-4xl">
-			Hola, soy Gonzalo Fernández González. Estudiante de Ingeniería del Software y Desarrollador.
-		</h1>
-		<a
-			href="#proyectos"
-			class="mt-8 inline-block rounded-full border border-emerald-400 px-6 py-3 text-sm font-medium text-emerald-400 transition hover:bg-emerald-400 hover:text-zinc-950"
-		>
-			Ver proyectos
-		</a>
-	</div>
-	<div class="flex-1">
-		<img
-			src="/mi-foto.png"
-			alt="Gonzalo Fernández González"
-			class="mx-auto h-56 w-56 rounded-full object-cover md:h-72 md:w-72"
-		/>
+---
+import Icon from './Icon.astro';
+---
+
+<section id="inicio" class="relative overflow-hidden">
+	<div class="mx-auto grid max-w-5xl items-center gap-12 px-6 pt-16 pb-20 md:grid-cols-12 md:pt-20 md:pb-28">
+		<div class="order-2 md:order-1 md:col-span-7">
+			<p class="animate-fade-up font-mono text-xs tracking-[0.2em] text-gold-400 uppercase">
+				Ingeniero de software 
+			</p>
+			<h1
+				class="animate-fade-up mt-4 text-4xl leading-[1.1] font-semibold tracking-tight text-bone-100 [animation-delay:80ms] md:text-6xl"
+			>
+				Gonzalo Fernández González
+			</h1>
+			<p
+				class="animate-fade-up mt-6 max-w-[46ch] text-base leading-relaxed text-bone-500 [animation-delay:160ms]"
+			>
+				Estudiante de Ingeniería del Software en la Universidad de Oviedo
+			</p>
+			<a
+				href="#proyectos"
+				class="animate-fade-up group mt-8 inline-flex items-center gap-2 rounded-xl border border-gold-400 px-6 py-3 text-sm font-medium text-gold-400 transition duration-300 hover:bg-gold-400 hover:text-ink-950 [animation-delay:240ms]"
+			>
+				Ver proyectos
+				<Icon name="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+			</a>
+		</div>
+		<div class="order-1 md:order-2 flex md:col-span-5 justify-center md:justify-end">
+			<div class="relative h-56 w-56 shrink-0 md:h-72 md:w-72">
+				<div
+					class="absolute -inset-3 -z-10 rounded-full border border-gold-400/30"
+					aria-hidden="true"
+				>
+				</div>
+				<img
+					src="/mi-foto.png"
+					alt="Gonzalo Fernández González"
+					class="h-full w-full rounded-full border border-bone-100/10 object-cover"
+				/>
+			</div>
+		</div>
 	</div>
 </section>

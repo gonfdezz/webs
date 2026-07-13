@@ -1,18 +1,45 @@
-<footer class="border-t border-zinc-800">
-	<div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-10 text-sm text-zinc-500">
-		<nav class="flex gap-6">
-			<!-- TODO: reemplazar por la URL real de LinkedIn -->
-			<a href="#" class="transition hover:text-emerald-400">LinkedIn</a>
-			<a href="https://github.com/gonfdezz" class="transition hover:text-emerald-400">GitHub</a>
-			<!-- TODO: reemplazar por el email real -->
-			<a href="#" class="transition hover:text-emerald-400">Email</a>
-		</nav>
-		<a
-			href="/cv.pdf"
-			class="rounded-full border border-zinc-800 px-4 py-1.5 text-xs text-zinc-400 transition hover:border-emerald-400 hover:text-emerald-400"
-		>
-			Descargar CV
-		</a>
-		<p>&copy; {new Date().getFullYear()} Gonzalo Fernández González</p>
-	</div>
+---
+import Icon from "./Icon.astro";
+---
+
+<footer class="border-t border-bone-100/10">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-12 text-sm text-bone-500"
+  >
+    <nav class="flex gap-6">
+      <!-- TODO: reemplazar por la URL real de LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/gonzalo-fernández-gonzález-621a6730a/"
+        class="inline-flex items-center gap-2 transition hover:text-gold-400"
+      >
+        <Icon name="linkedin-logo" class="h-4 w-4" />
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/gonfdezz"
+        class="inline-flex items-center gap-2 transition hover:text-gold-400"
+      >
+        <Icon name="github-logo" class="h-4 w-4" />
+        GitHub
+      </a>
+      <!-- TODO: reemplazar por el email real -->
+      <a
+        href="#"
+        class="inline-flex items-center gap-2 transition hover:text-gold-400"
+      >
+        <Icon name="envelope-simple" class="h-4 w-4" />
+        Email
+      </a>
+    </nav>
+    <a
+      href="/cv.pdf"
+      class="inline-flex items-center gap-2 rounded-xl border border-bone-100/15 px-4 py-2 text-xs text-bone-300 transition hover:border-gold-400 hover:text-gold-400"
+    >
+      <Icon name="download-simple" class="h-3.5 w-3.5" />
+      Descargar CV
+    </a>
+    <p class="text-xs text-bone-700">
+      Oviedo, España · &copy; {new Date().getFullYear()} Gonzalo Fernández González
+    </p>
+  </div>
 </footer>

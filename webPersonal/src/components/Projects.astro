@@ -24,11 +24,18 @@ const projects = [
 		githubUrl: 'https://github.com/gonfdezz',
 	},
 ];
+
+const [featured, ...rest] = projects;
 ---
 
-<section id="proyectos" class="mx-auto max-w-5xl px-6 py-20">
-	<h2 class="text-2xl font-semibold text-zinc-100">Proyectos</h2>
-	<div class="mt-8 grid gap-8 md:grid-cols-3">
-		{projects.map((project) => <ProjectCard {...project} />)}
+<section id="proyectos" class="border-t border-bone-100/10 px-6 py-20">
+	<div class="mx-auto max-w-5xl">
+		<h2 data-reveal class="text-2xl font-semibold tracking-tight text-bone-100">Proyectos</h2>
+		<div class="mt-8 flex flex-col gap-6">
+			<ProjectCard {...featured} index={1} featured />
+			<div class="grid gap-6 md:grid-cols-2">
+				{rest.map((project, i) => <ProjectCard {...project} index={i + 2} />)}
+			</div>
+		</div>
 	</div>
 </section>
